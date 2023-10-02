@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'SoraThin'; 
+  font-weight: 100;
+  src: local('SoraThin'), url('./fonts/Sora/Sora-Thin.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'SoraExtraLight';
+  font-weight: 200;
+  src: local('SoraExtraLight'), url('./fonts/Sora/Sora-ExtraLight.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'SoraLight';
+  font-weight: 300;
+  src: local('SoraLight'), url('./fonts/Sora/Sora-Light.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'SoraRegular';
+  font-weight: 400;
+  src: local('SoraRegular'), url('./fonts/Sora/Sora-Regular.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'SoraMedium';
+  font-weight: 500;
+  src: local('SoraMedium'), url('./fonts/Sora/Sora-Medium.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'SoraSemiBold';
+  font-weight: 600;
+  src: local('SoraSemiBold'), url('./fonts/Sora/Sora-SemiBold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'SoraBold';
+  font-weight: 700;
+  src: local('SoraBold'), url('./fonts/Sora/Sora-Bold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'Sora';
+  font-weight: 800;
+  src: url('./fonts/Sora/Sora-ExtraBold.ttf') format("truetype");
+}
+
+.SoraThin { font-family: 'SoraThin'; }
+.SoraExtraLight { font-family: 'SoraExtraLight'; }
+.SoraLight { font-family: 'SoraLight'; }
+.SoraMedium { font-family: 'SoraMedium'; }
+.SoraSemiBold { font-family: 'SoraSemiBold'; }
+.SoraBold { font-family: 'SoraBold'; }
+.SoraRegular { font-family: 'SoraRegular'; }
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
