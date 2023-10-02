@@ -31,7 +31,7 @@ export default class DashboardHighlightCard extends React.Component {
                         </span>)
                     }
                 </div>
-                <h2 style={{ color: "white", fontSize: "25px", marginTop: "5px" }}>
+                <h2 class="SoraBold" style={{ color: "white", fontSize: "25px", marginTop: "5px" }}>
                     <span className="mx-1" style={{ fontWeight: "600", fontSize: "18px", color: "#858585" }}>₹</span>
                     {parseFloat(this.props.deltaAmount).toLocaleString("en-IN")}
                 </h2>
