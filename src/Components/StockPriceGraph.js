@@ -21,11 +21,8 @@ export default class StockPriceGraph extends React.Component {
                 },
                 stroke: {
                     show: true,
-                    curve: 'smooth',
-                    lineCap: 'butt',
-                    colors: undefined,
-                    width: 5,
-                    dashArray: 0, 
+                    curve: 'smooth', lineCap: 'butt',
+                    colors: undefined, width: 5, dashArray: 0, 
                 },
                 xaxis: {
                     axisTicks: { show: false },  axisBorder: { show: false },
@@ -39,18 +36,15 @@ export default class StockPriceGraph extends React.Component {
                     xaxis: { lines: { show: true } },   
                     yaxis: { lines: { show: true } },
                     row: {
-                        colors: undefined,
-                        opacity: 0.2
+                        colors: undefined, opacity: 0.2
                     },  
                     column: {
                         colors: undefined,
                         opacity: 0.2
                     },  
                     padding: {
-                        top: 0,
-                        right: 25,
-                        bottom: 0,
-                        left: 15
+                        top: 0, right: 25,
+                        bottom: 0, left: 15
                     },  
                 },
                 fill: {
@@ -118,7 +112,8 @@ export default class StockPriceGraph extends React.Component {
                                             textAlign: "center", height: "30px", fontSize: "13px",
                                             color: this.state.selectedGraphAggreagte === option ? "white" : "gray",
                                             backgroundColor: this.state.selectedGraphAggreagte !== option ? "rgb(10, 10, 10)" : "",
-                                            backgroundImage: this.state.selectedGraphAggreagte === option ? "linear-gradient(to bottom right, #ff5d31, #fd423a)" : ""
+                                            backgroundImage: this.state.selectedGraphAggreagte === option 
+                                            ? "linear-gradient(to bottom right, #ff5d31, #fd423a)" : ""
                                         }}>
                                             { option }
                                         </Col>

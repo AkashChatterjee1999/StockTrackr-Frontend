@@ -1,10 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import Dashboard from './pages/Dashboard';
+import DefaultLayout from './layouts/DefaultLayout';
+import StockListings from './pages/StockListings';
 
 function App() {
   return (
-    <Dashboard />
+    <DefaultLayout>
+      <StockListings />
+    </DefaultLayout>
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
