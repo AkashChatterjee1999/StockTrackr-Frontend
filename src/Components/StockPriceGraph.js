@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
 import Chart from 'react-apexcharts'
+import StockTrackrMultiOptSwiitch from "../Components/StockTrackrMultiOptSwitch";
 
 export default class StockPriceGraph extends React.Component {
     constructor(props) { 
@@ -103,27 +104,13 @@ export default class StockPriceGraph extends React.Component {
                         </Row>
                     </Col>
                     <Col md={5} className="my-auto">
-                        <Row className="px-3 py-2" style={{ borderRadius: "7px", color: "gray",
-                            backgroundColor: "black", justifyContent: "space-between" }}>
-                            {
-                                this.state.availableGraphDurationOptions.map(option => {
-                                    return (
-                                        <Col xs={2} className="SoraSemiBold pt-1" style={{ borderRadius: "7px", 
-                                            textAlign: "center", height: "30px", fontSize: "13px",
-                                            color: this.state.selectedGraphAggreagte === option ? "white" : "gray",
-                                            backgroundColor: this.state.selectedGraphAggreagte !== option ? "rgb(10, 10, 10)" : "",
-                                            backgroundImage: this.state.selectedGraphAggreagte === option 
-                                            ? "linear-gradient(to bottom right, #ff5d31, #fd423a)" : ""
-                                        }}>
-                                            { option }
-                                        </Col>
-                                    )
-                                })
-                            }
-                        </Row>
+                        <StockTrackrMultiOptSwiitch availableGraphDurationOptions={this.state.availableGraphDurationOptions} width={"300px"}
+                        selectedOption={this.state.selectedGraphAggreagte} onClick={(option) => this.setState({ selectedGraphAggreagte: option })} />
                     </Col>
                 </Row>
-                <Chart options={this.state.chartData} series={this.state.series} type="line" width={700} height={400} />
+                <div className="d-block m-auto" style={{ width: "max-content" }}>
+                    <Chart options={this.state.chartData} series={this.state.series} type="line" width={700} height={400} />
+                </div>
             </>
         )
     }

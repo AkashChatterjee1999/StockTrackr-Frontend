@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Container } from "reactstrap"
+import { browserHistory } from 'react-router-dom';
 
 const tabInactiveColor = "#3e3e3e";
 const tabActiveColor = "#ffffff";
@@ -14,6 +15,36 @@ export default class DefaultLayout extends React.Component {
         }
     }
 
+    changePage = (pageID) => {
+        switch(pageID) {
+            case availableTabs[0]: {
+                this.setState({ currentOpenTab: availableTabs[0] }, () => {
+                    window.location.pathname = "/";
+                });
+                break;
+            }
+            case availableTabs[1]: {
+                this.setState({ currentOpenTab: availableTabs[1] }, () => {
+                    window.location.pathname = "/stocks";
+                });
+                break;
+            }
+            case availableTabs[2]: {
+                this.setState({ currentOpenTab: availableTabs[2] }, () => {
+                    window.location.pathname = "/orders";
+                });
+                break;
+            }
+            case availableTabs[3]: {
+                this.setState({ currentOpenTab: availableTabs[3] }, () => {
+                    window.location.pathname = "/profile";
+                });
+                break;
+            }
+            default: {}
+        }
+    }
+
     render() {
         return (
         //<Container className="m-0">
@@ -23,21 +54,21 @@ export default class DefaultLayout extends React.Component {
                 <Col xs={1} className="p-0" style={{ backgroundColor: "rgba(0, 0, 0, 0.7)", height: "100vh", maxWidth: "80px" }}>
                     <img className="mt-3 mx-auto d-block" src={`${process.env.PUBLIC_URL + "/assets/images/brand-img.svg"}`} />
                     <Col style={{ marginTop: "20vh" }}>
-                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }}>
+                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }} onClick={(e) => this.changePage(availableTabs[0])}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
                                 stroke={this.state.currentOpenTab === availableTabs[0] ? tabActiveColor : tabInactiveColor }
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
                                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                             </svg>
                         </div>
-                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }}>
+                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }} onClick={(e) => this.changePage(availableTabs[1])}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
                                 stroke={this.state.currentOpenTab === availableTabs[1] ? tabActiveColor : tabInactiveColor } 
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart">
                                 <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path>
                             </svg>
                         </div>
-                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }}>
+                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }} onClick={(e) => this.changePage(availableTabs[2])}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
                             stroke={this.state.currentOpenTab === availableTabs[2] ? tabActiveColor : tabInactiveColor }
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart">
@@ -45,7 +76,7 @@ export default class DefaultLayout extends React.Component {
                                 <line x1="6" y1="20" x2="6" y2="16"></line>
                             </svg>
                         </div>
-                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }}>
+                        {/* <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }} onClick={(e) => this.changePage(availableTabs[3])}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
                             stroke={this.state.currentOpenTab === availableTabs[3] ? tabActiveColor : tabInactiveColor }
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle">
@@ -53,10 +84,10 @@ export default class DefaultLayout extends React.Component {
                                 <line x1="12" y1="8" x2="12" y2="12"></line>
                                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
                             </svg>
-                        </div>
-                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }}>
+                        </div> */}
+                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }} onClick={(e) => this.changePage(availableTabs[3])}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
-                                stroke={this.state.currentOpenTab === availableTabs[4] ? tabActiveColor : tabInactiveColor }
+                                stroke={this.state.currentOpenTab === availableTabs[3] ? tabActiveColor : tabInactiveColor }
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>

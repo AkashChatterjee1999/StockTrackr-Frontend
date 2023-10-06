@@ -5,6 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  p {
+    width: "max-content";
+  }
+
+}
+
+.overflowContainer::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+.overflowContainer::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 
 code {

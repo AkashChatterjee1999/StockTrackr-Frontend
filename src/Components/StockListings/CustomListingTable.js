@@ -1,4 +1,5 @@
 import React from "react";
+import { Row, Col, Container } from "reactstrap";
 
 export default class CustomListingTable extends React.Component {
 
@@ -12,7 +13,15 @@ export default class CustomListingTable extends React.Component {
                 { companyName: "Apple Inc", stockPrice: "2456.87", deltaChange: 23.1 },
                 { companyName: "Amazon India pvt Ltd.", stockPrice: "1415.47", deltaChange: -18.1 },
                 { companyName: "Alphabet Inc", stockPrice: "1734.34", deltaChange: -34.1 },
-                { companyName: "JP Morgan & Chase", stockPrice: "2512.35", deltaChange: 15.1 }
+                { companyName: "JP Morgan & Chase", stockPrice: "2512.35", deltaChange: 15.1 },
+                { companyName: "Apple Inc", stockPrice: "2456.87", deltaChange: 23.1 },
+                { companyName: "Amazon India pvt Ltd.", stockPrice: "1415.47", deltaChange: -18.1 },
+                { companyName: "Alphabet Inc", stockPrice: "1734.34", deltaChange: -34.1 },
+                { companyName: "JP Morgan & Chase", stockPrice: "2512.35", deltaChange: 15.1 },
+                { companyName: "Alphabet Inc", stockPrice: "1734.34", deltaChange: -34.1 },
+                { companyName: "JP Morgan & Chase", stockPrice: "2512.35", deltaChange: 15.1 },
+                { companyName: "Apple Inc", stockPrice: "2456.87", deltaChange: 23.1 },
+                { companyName: "Amazon India pvt Ltd.", stockPrice: "1415.47", deltaChange: -18.1 },
             ]
         }
     }
