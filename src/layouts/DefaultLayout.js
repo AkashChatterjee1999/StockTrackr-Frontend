@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col, Container } from "reactstrap"
-import { browserHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import moment from "moment";
 
 const tabInactiveColor = "#3e3e3e";
 const tabActiveColor = "#ffffff";
@@ -15,67 +16,54 @@ export default class DefaultLayout extends React.Component {
         }
     }
 
-    changePage = (pageID) => {
-        switch(pageID) {
-            case availableTabs[0]: {
-                this.setState({ currentOpenTab: availableTabs[0] }, () => {
-                    window.location.pathname = "/";
-                });
-                break;
-            }
-            case availableTabs[1]: {
-                this.setState({ currentOpenTab: availableTabs[1] }, () => {
-                    window.location.pathname = "/stocks";
-                });
-                break;
-            }
-            case availableTabs[2]: {
-                this.setState({ currentOpenTab: availableTabs[2] }, () => {
-                    window.location.pathname = "/orders";
-                });
-                break;
-            }
-            case availableTabs[3]: {
-                this.setState({ currentOpenTab: availableTabs[3] }, () => {
-                    window.location.pathname = "/profile";
-                });
-                break;
-            }
-            default: {}
-        }
-    }
+    changePage = (pageID) => this.setState({ currentOpenTab: availableTabs[pageID] });
 
     render() {
         return (
-        //<Container className="m-0">
             <Row className="m-0 p-0" style={{ 
                 backgroundColor: "black", backgroundPosition: "center top", backgroundRepeat: "no-repeat", backgroundSize: "100vw 25vh",
                 backgroundImage:  `url("${process.env.PUBLIC_URL}/assets/images/dashboardBackgroundHQ.png")`, overflowX: "hidden" }}>
                 <Col xs={1} className="p-0" style={{ backgroundColor: "rgba(0, 0, 0, 0.7)", height: "100vh", maxWidth: "80px" }}>
                     <img className="mt-3 mx-auto d-block" src={`${process.env.PUBLIC_URL + "/assets/images/brand-img.svg"}`} />
                     <Col style={{ marginTop: "20vh" }}>
-                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }} onClick={(e) => this.changePage(availableTabs[0])}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
-                                stroke={this.state.currentOpenTab === availableTabs[0] ? tabActiveColor : tabInactiveColor }
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
-                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                            </svg>
-                        </div>
-                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }} onClick={(e) => this.changePage(availableTabs[1])}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
-                                stroke={this.state.currentOpenTab === availableTabs[1] ? tabActiveColor : tabInactiveColor } 
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart">
-                                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path>
-                            </svg>
-                        </div>
-                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }} onClick={(e) => this.changePage(availableTabs[2])}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
-                            stroke={this.state.currentOpenTab === availableTabs[2] ? tabActiveColor : tabInactiveColor }
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart">
-                                <line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line>
-                                <line x1="6" y1="20" x2="6" y2="16"></line>
-                            </svg>
-                        </div>
+                        <Link to="/" onClick={e => this.changePage(0)}>
+                            <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
+                                    stroke={this.state.currentOpenTab === availableTabs[0] ? tabActiveColor : tabInactiveColor }
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                            </div>
+                        </Link>
+                        <Link to="/stocks" onClick={e => this.changePage(1)}>
+                            <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
+                                    stroke={this.state.currentOpenTab === availableTabs[1] ? tabActiveColor : tabInactiveColor } 
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart">
+                                    <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                                </svg>
+                            </div>
+                        </Link>
+                        <Link to="/orders" onClick={e => this.changePage(2)}>
+                            <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
+                                stroke={this.state.currentOpenTab === availableTabs[2] ? tabActiveColor : tabInactiveColor }
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart">
+                                    <line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="16"></line>
+                                </svg>
+                            </div>
+                        </Link>
+                        <Link to="/profile" onClick={e => this.changePage(3)}>
+                            <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
+                                    stroke={this.state.currentOpenTab === availableTabs[3] ? tabActiveColor : tabInactiveColor }
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div> 
+                        </Link>
                         {/* <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }} onClick={(e) => this.changePage(availableTabs[3])}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
                             stroke={this.state.currentOpenTab === availableTabs[3] ? tabActiveColor : tabInactiveColor }
@@ -85,14 +73,6 @@ export default class DefaultLayout extends React.Component {
                                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
                             </svg>
                         </div> */}
-                        <div className="p-1 my-3 d-block mx-auto" style={{ width: "max-content" }} onClick={(e) => this.changePage(availableTabs[3])}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 24 24" fill="none" 
-                                stroke={this.state.currentOpenTab === availableTabs[3] ? tabActiveColor : tabInactiveColor }
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </div>
                     </Col>
                 </Col>
                 <Col xs={11} className="px-3 py-3 mx-auto">
@@ -103,7 +83,7 @@ export default class DefaultLayout extends React.Component {
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
-                            <p className="mx-3 my-auto" style={{ color: "#faf6f6", fontSize: "13.5px" }}>Sunday, 2 Oct 2023</p>
+                            <p className="mx-3 my-auto" style={{ color: "#faf6f6", fontSize: "13.5px" }}>{ moment().format("dddd, DD MMM YYYY") }</p>
                         </div>
                         <div className="d-flex my-4" style={{ width: "max-content" }}>
                             <div style={{ width: "40px", height: "40px", borderRadius: "20px", backgroundColor: "red" }}></div>
@@ -118,7 +98,6 @@ export default class DefaultLayout extends React.Component {
                     </Container>
                 </Col>
             </Row>
-        //</Container>
         )
         
     }

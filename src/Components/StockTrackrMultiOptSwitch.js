@@ -17,9 +17,9 @@ export default class StockTrackrMultiOptSwiitch extends React.Component {
                 backgroundColor: "black", justifyContent: "space-between", width: this.props.width ?? "" }}>
                 {
                     this.props.availableGraphDurationOptions ? 
-                    this.props.availableGraphDurationOptions.map(option => {
+                    this.props.availableGraphDurationOptions.map((option, ind) => {
                         return (
-                            <Col xs={Math.ceil(12/this.props.availableGraphDurationOptions.length)-1} 
+                            <Col key={ind} xs={Math.ceil(12/this.props.availableGraphDurationOptions.length)-1} 
                                 className="SoraSemiBold pt-1 mx-1" style={{ borderRadius: "7px", 
                                 textAlign: "center", height: "30px", fontSize: "13px", cursor: "pointer",
                                 color: this.props.selectedOption === option ? "white" : "gray",

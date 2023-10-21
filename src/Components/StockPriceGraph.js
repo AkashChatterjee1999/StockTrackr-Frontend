@@ -103,9 +103,9 @@ export default class StockPriceGraph extends React.Component {
                             </div>
                         </Row>
                     </Col>
-                    <Col md={5} className="my-auto">
+                    <Col md={7} className="my-auto d-flex flex-column" style={{ alignItems: "flex-end" }}>
                         <StockTrackrMultiOptSwiitch availableGraphDurationOptions={this.state.availableGraphDurationOptions} width={"300px"}
-                        selectedOption={this.state.selectedGraphAggreagte} onClick={(option) => this.setState({ selectedGraphAggreagte: option })} />
+                            selectedOption={this.state.selectedGraphAggreagte} onClick={(option) => this.setState({ selectedGraphAggreagte: option })} />
                     </Col>
                 </Row>
                 <div className="d-block m-auto" style={{ width: "max-content" }}>
